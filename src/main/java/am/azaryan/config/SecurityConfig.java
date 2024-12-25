@@ -27,7 +27,7 @@ public class SecurityConfig {
                 .requestMatchers("/").permitAll()
                 .requestMatchers("/admin/**").hasAuthority(UserType.ADMIN.name())
                 .requestMatchers("/loginPage").permitAll()
-                .requestMatchers("/registration").permitAll()
+                .requestMatchers("/register").permitAll()
                 .anyRequest().permitAll()
 //                .anyRequest().authenticated()
                 .and()
