@@ -43,7 +43,7 @@ public class UserController {
     @PostMapping("/user/register")
     public String userRegister(@ModelAttribute User user) {
         Optional<User> byEmail = userService.findByEmail(user.getEmail());
-        if (byEmail == null) {
+        if (byEmail.isEmpty()) {
             user.setUserType(UserType.USER);
             user.setPassword(passwordEncoder.encode(user.getPassword()));
             userService.register(user);
