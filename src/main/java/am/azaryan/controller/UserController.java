@@ -15,6 +15,8 @@ import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
+import java.util.Optional;
+
 @Controller
 public class UserController {
 
@@ -40,7 +42,7 @@ public class UserController {
 
     @PostMapping("/user/register")
     public String userRegister(@ModelAttribute User user) {
-        User byEmail = userService.findByEmail(user.getEmail());
+        Optional<User> byEmail = userService.findByEmail(user.getEmail());
         if (byEmail == null) {
             user.setUserType(UserType.USER);
             user.setPassword(passwordEncoder.encode(user.getPassword()));

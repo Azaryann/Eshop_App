@@ -27,6 +27,6 @@ public class ProductController {
         }
         modelMap.addAttribute("product", byId);
         modelMap.addAttribute("categories", categoryService.findAll());
-        return "productPage";
+        return "user/productPage";
     }
 }
