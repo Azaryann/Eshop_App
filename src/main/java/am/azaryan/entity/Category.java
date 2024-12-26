@@ -14,4 +14,7 @@ public class Category {
 
     private String name;
 
+    @ManyToOne
+    private User user;
+
 }
