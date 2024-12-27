@@ -3,7 +3,7 @@ package am.azaryan.service.impl;
 import am.azaryan.entity.Category;
 import am.azaryan.entity.UserType;
 import am.azaryan.repository.CategoryRepository;
-import am.azaryan.exception.IdNotFoundException;
+import am.azaryan.exception.ResourceNotFoundException;
 import am.azaryan.security.SpringUser;
 import am.azaryan.service.CategoryService;
 
@@ -40,6 +40,6 @@ public class CategoryServiceImpl implements CategoryService {
         byId.ifPresent(category -> {
             categoryRepository.deleteById(id);
         });
-        byId.orElseThrow(IdNotFoundException::new);
+        byId.orElseThrow(ResourceNotFoundException::new);
     }
 }
